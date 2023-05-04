@@ -4,8 +4,8 @@ import "./Footer.css"
 
 const Footer = () => {
     return (
-        <div>
-            <Container className='bg-dark text-white'>
+        <div className='bg-dark text-white px-5'>
+            
       <Row>
         <Col lg={3} className='mb-3'>
          <h4 className="text-white mt-3">Food<span className='text-danger'>Hut</span></h4>
@@ -41,7 +41,7 @@ const Footer = () => {
         </Col>
       </Row>
       
-    </Container>
+   
 
         </div>
     );

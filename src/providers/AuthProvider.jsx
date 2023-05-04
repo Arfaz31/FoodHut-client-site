@@ -8,7 +8,7 @@ const auth = getAuth(app)
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-  
+    const googleProvider = new GoogleAuthProvider();
 
 
     const createUser = (email, password) => {
@@ -43,6 +43,11 @@ const AuthProvider = ({children}) => {
         };
       }, []);
 
+       //google signin
+       const handleGoogleSignIn = ( ) =>{
+        setLoading(true)
+       return signInWithPopup (auth, googleProvider)   
+    }
 
     const authInfo ={
         user,
@@ -50,6 +55,7 @@ const AuthProvider = ({children}) => {
         signIn,
         logOut,
         userUpdateData,
+        handleGoogleSignIn
       
 
     }

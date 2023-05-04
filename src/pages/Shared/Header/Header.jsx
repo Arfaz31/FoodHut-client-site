@@ -38,7 +38,7 @@ const Header = () => {
          
 
  {user && <div> <a data-tooltip-id="my-tooltip" data-tooltip-content= {user.displayName}>
-                  <img src={user.photoURL} alt="" className="container img-fluid rounded" width="30" height="30"/>
+                  <img src={user.photoURL} alt="" className=" img-fluid rounded" width="30" height="30"/>
                </a> 
                <Tooltip id="my-tooltip" /></div>}
          

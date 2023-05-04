@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
-
+import { FaGooglePlus, FaGithub} from 'react-icons/fa';
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext)
+    const {signIn, handleGoogleSignIn} = useContext(AuthContext)
     const navigate = useNavigate()
     const [success, setSuccess] = useState('')
     const[error, setError] = useState('')
@@ -33,6 +33,16 @@ const Login = () => {
 
     }
 
+    const handleGoogleSign = () => {
+        handleGoogleSignIn()
+          .then((result) => {
+            const user = result.user;
+            navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            console.log("error massage", error.massage);
+          });
+      };
     
 
     return (
@@ -55,6 +65,18 @@ const Login = () => {
         Login
       </Button>
       <br />
+      
+     <div className='d-flex mb-3'>
+          
+          <Button onClick={handleGoogleSign} variant="danger" type="submit" className='me-3'>
+            <FaGooglePlus/>
+          </Button>
+            
+          <Button  variant="danger" type="submit" className=''>
+           <FaGithub/>
+          </Button>
+         </div>
+
       <Form.Text className="text-danger">
           {error}
           </Form.Text>

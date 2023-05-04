@@ -170,22 +170,100 @@ const Home = () => {
            </div>
             <h4 className="m-2">$120</h4>
             </div>
-            </Row>
-
-              
-            </Col>
-           
+            </Row>              
+            </Col>        
           </Row>
         </Container>
       </section>
 
-     
+      {/* Second section */}
+      <section className="mt-5 mb-5">
+        <div>
+          <Container>
+            <Row>
+              <Col lg={6}>
+                <img src={video} alt="" className=" img-fluid" />
+              </Col>
+
+              <Col lg={6} className="bg-dark text-white ">
+              <div className="mt-4 ms-2 text-sm-left">
+                  <h4>
+                    Food<span className="text-danger">Hut</span>
+                  </h4>
+                  <h1>Book A Table Online</h1>
+
+                  <Form>
+                    <div className="d-flex  mt-3">
+                      <div>
+                        <Form.Group
+                          className=" mb-3  me-5 "
+                          controlId="formBasicEmail"
+                        >
+                          <Form.Control
+                            type="email"
+                            placeholder="Enter email"
+                          />
+                        </Form.Group>
+                      </div>
+
+                      <div>
+                        <Form.Group
+                          className=" mb-3 "
+                          controlId="formBasicPassword"
+                        >
+                          <Form.Control
+                            type="password"
+                            placeholder="Password"
+                          />
+                        </Form.Group>
+                      </div>
+                    </div>
+                    <div className="d-flex justify-content-start align-items-center mt-3">
+                      <div>
+                        <Form.Group
+                          className=" mb-3  me-5 "
+                          controlId="formBasicNumber"
+                        >
+                          <Form.Control type="number" placeholder="Date" />
+                        </Form.Group>
+                      </div>
+
+                      <div>
+                        <Form.Group
+                          className=" mb-3 "
+                          controlId="formBasicNumber"
+                        >
+                          <Form.Control
+                            type="number"
+                            placeholder="No. of people"
+                          />
+                        </Form.Group>
+                      </div>
+                    </div>
+                    <div className="form-group">
+                      <textarea
+                        className="form-control mt-3  w-75"
+                        id="exampleFormControlTextarea1"
+                        rows="3"
+                        placeholder="Special message"
+                      ></textarea>
+                    </div>
+                    <Button
+                      variant="danger"
+                      className="w-50  mt-3 mb-1 text-center py-2 fs-5"
+                    >
+                      Book Now
+                    </Button>{" "}
+                  </Form>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </section>
     </div>
   );
 };
 
 export default Home;
 
-{
-  /* <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button> */
-}

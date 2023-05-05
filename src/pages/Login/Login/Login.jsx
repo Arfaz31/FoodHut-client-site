@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaGooglePlus, FaGithub} from 'react-icons/fa';
 
+
 const Login = () => {
-    const {signIn, handleGoogleSignIn} = useContext(AuthContext)
+   
+    const {signIn, handleGoogleSignIn, handleGitHubSignIn} = useContext(AuthContext)
     const navigate = useNavigate()
     const [success, setSuccess] = useState('')
     const[error, setError] = useState('')
@@ -44,6 +46,18 @@ const Login = () => {
           });
       };
     
+      
+
+      const handleGitHubSign = () => {
+        handleGitHubSignIn()
+          .then((result) => {
+            const user = result.user;
+            navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            console.log("error massage", error.massage);
+          });
+      };
 
     return (
             <div className='bg-dark w-50 mx-auto mt-5 my-5' >
@@ -72,7 +86,7 @@ const Login = () => {
             <FaGooglePlus/>
           </Button>
             
-          <Button  variant="danger" type="submit" className=''>
+          <Button onClick={handleGitHubSign} variant="danger" type="submit" className=''>
            <FaGithub/>
           </Button>
          </div>

@@ -28,14 +28,16 @@ import {
   FaUtensils,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 const Home = () => {
   const[chefsData, setChefsData] = useState([]);
-
+const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/chef")
     .then(res => res.json())
     .then(data => setChefsData(data))
+    setLoading(false)
     
   } ,[])
   return (
@@ -202,7 +204,8 @@ const Home = () => {
 <Container>
   
 <div className="chef-card">  
-        {chefsData.map((chefsData) => (
+{loading ? <Loader/> : <>
+{chefsData.map((chefsData) => (
   <div key={chefsData.id}>
    <Card style={{ width: "20rem" }} className="mb-3 bg-light">
                 <Card.Img className="img-fluid" variant="top" src={chefsData.chef_picture} />
@@ -222,6 +225,7 @@ const Home = () => {
               </Card>
   </div>
 ))}
+</>}
 </div>
 </Container>
         

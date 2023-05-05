@@ -28,7 +28,7 @@ import {
   FaUtensils,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Loader from "../Loader/Loader";
+
 const Home = () => {
   const[chefsData, setChefsData] = useState([]);
 

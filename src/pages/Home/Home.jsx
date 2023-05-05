@@ -215,7 +215,7 @@ const Home = () => {
                           <h6 className="text-secondary">Likes: <span className="fw-bold">{chefsData.likes}</span></h6>
                        </div>
                   </Card.Text>
-                  <Link to={`/cookdetail/${chefsData.id}`}>
+                  <Link to={`./recipe/${chefsData.id}`}>
                         <Button variant="danger">View Recipes</Button>
                   </Link> 
                 </Card.Body>

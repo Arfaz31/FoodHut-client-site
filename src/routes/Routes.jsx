@@ -5,6 +5,8 @@ import Blog from "../pages/Blog/Blog";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 import Error from "../pages/Error/Error";
+import ReciepeDetails from "../pages/Home/ReciepeDetails/ReciepeDetails";
+import Loader from "../pages/Loader/Loader";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +29,11 @@ const router = createBrowserRouter([
             {
                 path:'/blog',
                 element:<Blog/>
+            },
+            {
+                path:'/recipe/:id',
+                element:<ReciepeDetails/>,
+                loader:({params})=> fetch(`http://localhost:5000/chef/${params.id}`)
             }
         ]
     }

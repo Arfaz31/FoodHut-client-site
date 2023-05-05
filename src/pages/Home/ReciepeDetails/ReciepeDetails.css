@@ -1,0 +1,6 @@
+.recipe-card{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 60px;
+    margin-bottom: 100px;
+}

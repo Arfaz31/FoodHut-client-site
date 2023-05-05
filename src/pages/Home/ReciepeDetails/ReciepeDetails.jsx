@@ -1,10 +1,18 @@
 import React from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Row} from "react-bootstrap";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useLoaderData } from "react-router-dom";
 import "./ReciepeDetails.css"
 const ReciepeDetails = () => {
   const recipeData = useLoaderData();
   console.log(recipeData);
+const handleClick = event => {
+    event.currentTarget.disabled = true;
+    console.log('button clicked')
+    toast("Favourite")
+}
+
   return (
     <div className="bg-dark bg-opacity-10">
       <div className="pt-5 mb-5 py-5">
@@ -66,8 +74,8 @@ recipeData.recipes.map((recipe) => (
                   </div>
                    <p className="text-secondary mt-3 fw-bold">Rating: {recipe.rating}</p>
                 </Card.Text>
-                {/* <Button onClick={handleClick} variant="danger">Favorite button</Button>
-                <ToastContainer /> */}
+                <Button onClick={handleClick} variant="danger">Favorite button</Button>
+                <ToastContainer />
               </Card.Body>
             </Card>
           </div>

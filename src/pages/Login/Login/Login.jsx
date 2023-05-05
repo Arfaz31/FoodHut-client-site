@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, useNavigate, useNavigation } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaGooglePlus, FaGithub} from 'react-icons/fa';
 
@@ -9,6 +9,8 @@ const Login = () => {
    
     const {signIn, handleGoogleSignIn, handleGitHubSignIn} = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/"
     const [success, setSuccess] = useState('')
     const[error, setError] = useState('')
     const handleLogIn = event =>{
@@ -25,7 +27,7 @@ const Login = () => {
             const loggedUser = result.user
             console.log(loggedUser);
             setSuccess('user login is successful')
-            navigate('/')
+            navigate(from, {replace:true});
 
         })
         .catch(error =>{

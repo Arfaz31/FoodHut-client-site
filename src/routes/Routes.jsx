@@ -36,7 +36,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <ReciepeDetails/>
                 </PrivateRoute>,
-                loader:({params})=> fetch(`http://localhost:5000/chef/${params.id}`)
+                loader:({params})=> fetch(` https://foodhut-server-site-arfaz31.vercel.app/chef/${params.id}`)
             }
         ]
     }

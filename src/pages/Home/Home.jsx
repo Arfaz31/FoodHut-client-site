@@ -30,11 +30,12 @@ import {
 import { Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
 
+
 const Home = () => {
   const[chefsData, setChefsData] = useState([]);
 const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/chef")
+    fetch(" https://foodhut-server-site-arfaz31.vercel.app/chef")
     .then(res => res.json())
     .then(data => setChefsData(data))
     setLoading(false)

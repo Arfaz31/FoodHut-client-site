@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -27,7 +27,17 @@ import {
   FaHamburger,
   FaUtensils,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Loader from "../Loader/Loader";
 const Home = () => {
+  const[chefsData, setChefsData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/chef")
+    .then(res => res.json())
+    .then(data => setChefsData(data))
+    
+  } ,[])
   return (
     <div>
       <div>
@@ -79,6 +89,8 @@ const Home = () => {
           </Carousel.Item>
         </Carousel>
       </div>
+
+
 
       {/* //Food menu section */}
 
@@ -176,6 +188,46 @@ const Home = () => {
         </Container>
       </section>
 
+
+
+{/* Our Chef Section */}
+<section>
+<p className="text-danger text-center fs-3 fw-bold mt-5 ">
+          <FaRegWindowMinimize className="mb-3" />Team Members{" "}
+          <FaRegWindowMinimize className="mb-3" />
+        </p>
+        <h2 className="text-dark fs-1 fw-bold mt-3 text-center mb-5">
+          Our Master Chefs
+        </h2>
+<Container>
+  
+<div className="chef-card">  
+        {chefsData.map((chefsData) => (
+  <div key={chefsData.id}>
+   <Card style={{ width: "20rem" }} className="mb-3 bg-light">
+                <Card.Img className="img-fluid" variant="top" src={chefsData.chef_picture} />
+                <Card.Body>
+                  <Card.Title>{chefsData.chef_name}</Card.Title>
+                  <Card.Text>
+                       <div>
+                          <h6 className="text-secondary">Years of experience: <span className="fw-bold">{chefsData.years_of_experience}</span> </h6>
+                          <h6 className="text-secondary">Numbers of recipes: <span className="fw-bold">{chefsData.number_of_recipes}</span></h6>
+                          <h6 className="text-secondary">Likes: <span className="fw-bold">{chefsData.likes}</span></h6>
+                       </div>
+                  </Card.Text>
+                  <Link to={`/cookdetail/${chefsData.id}`}>
+                        <Button variant="danger">View Recipes</Button>
+                  </Link> 
+                </Card.Body>
+              </Card>
+  </div>
+))}
+</div>
+</Container>
+        
+      
+
+</section>
 
 
 

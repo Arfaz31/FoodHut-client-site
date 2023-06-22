@@ -25,8 +25,7 @@ const AuthProvider = ({children}) => {
        return  updateProfile (user, {
          displayName: name,
          photoURL:photo
-     })
-     
+     })    
  }
 
     const logOut = () => {
